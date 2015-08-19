@@ -3,6 +3,7 @@ package com.netbuilder.controllers;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +19,7 @@ public class CustomerController {
 		
 	
 	@RequestMapping(value="/customerListView", method = RequestMethod.GET)
-	@ResponseBody
+	@ResponseBody	
 	public ArrayList<Customer> allCustomers() {
 		
 		Customer customer = new Customer("Steve", 1);
@@ -39,8 +40,17 @@ public class CustomerController {
 		return "forward:customerList.jsp";
 	}
 	
-	
-	public String toPage() {
-		return "forward:customerListView";
+	@ModelAttribute("customerliststuff")
+	public ArrayList<Customer> customerListStuff(){
+		ArrayList<Customer> customerListStuff = new ArrayList<Customer>();	
+		for (Customer customer : allCustomers){
+
+			customerListStuff.add(customer);
+		}
+		return customerListStuff;
 	}
+	
+//	public String toPage() {
+//		return "forward:customerListView";
+//	}
 }
