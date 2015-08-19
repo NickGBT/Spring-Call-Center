@@ -27,12 +27,11 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="/addcustomer", method = RequestMethod.GET)
-	@ResponseBody
-	public void addCustomer(@RequestParam(value = "customerName", required = true) String customerName,
+	public String addCustomer(@RequestParam(value = "customerName", required = true) String customerName,
 			@RequestParam(value = "customerId", required = true) Integer customerId){
 		Customer customer = new Customer(customerName, customerId);
 		allCustomers.add(customer);
-		toPage();
+		return "forward:customerListView";
 	}
 	
 	@RequestMapping(value="/")
@@ -40,7 +39,8 @@ public class CustomerController {
 		return "forward:customerList.jsp";
 	}
 	
-	public String toPage(){
-		return "forward:customerList.jsp";
+	
+	public String toPage() {
+		return "forward:customerListView";
 	}
 }

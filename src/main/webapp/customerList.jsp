@@ -12,9 +12,10 @@
 	<br />
 
 	<form action="addcustomer">
-		<input type="input" name="customerName"> <input type="input"
-			name="customerId"> <input type="submit">
+		<input type="input" name="customerName"> 
+		<input type="input" name="customerId"> 
+		<input type="submit">
 	</form>
-	
+
 </body>
 </html>
