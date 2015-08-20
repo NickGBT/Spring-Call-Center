@@ -25,9 +25,9 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="/addcustomer", method = RequestMethod.GET)
-	public String addCustomer(@RequestParam(value = "customerName", required = true) String customerName,
-			@RequestParam(value = "customerId", required = true) Integer customerId){
-		Customer customer = new Customer(customerName, customerId);
+	public String addCustomer(@RequestParam(value = "fName", required = true) String fName,
+			@RequestParam(value = "lName", required = true) String lName, @RequestParam(value = "contactNumber", required = true) String contactNumber){
+		Customer customer = new Customer(fName, lName, contactNumber);
 		allCustomers.add(customer);
 		return "forward:customerListView";
 	}
