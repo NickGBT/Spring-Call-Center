@@ -22,6 +22,7 @@
 			<td><c:out value="${customer.customerId}"></c:out></td>
 			<td><c:out value="${customer.customerName}"></c:out></td>
 		</tr>
+		<br/>
 	</c:forEach>
 
 </body>

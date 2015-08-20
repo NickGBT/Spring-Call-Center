@@ -20,10 +20,7 @@ public class CustomerController {
 	
 	@RequestMapping(value="/customerListView", method = RequestMethod.GET)
 	@ResponseBody	
-	public ArrayList<Customer> allCustomers() {
-		
-		Customer customer = new Customer("Steve", 1);
-		allCustomers.add(customer);
+	public ArrayList<Customer> allCustomers() {		
 		return allCustomers;
 	}
 	
