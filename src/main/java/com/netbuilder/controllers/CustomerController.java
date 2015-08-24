@@ -16,7 +16,6 @@ public class CustomerController {
 	
 //	@Inject
 	private ArrayList<Customer> allCustomers = new ArrayList<Customer>();
-		
 	
 	@RequestMapping(value="/customerListView", method = RequestMethod.GET)
 	@ResponseBody	
