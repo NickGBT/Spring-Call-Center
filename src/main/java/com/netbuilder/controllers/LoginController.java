@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController 
 {
-	@RequestMapping(value="employeeLogin", method = RequestMethod.GET)
+	private String username;
+	
+	@RequestMapping(value="/employeelogin", method = RequestMethod.GET)
 	public String login(@RequestParam(value = "username", required = true) String username,
 						@RequestParam(value = "password", required = true) String password)
 	{
@@ -24,9 +26,17 @@ public class LoginController
 		return "";
 	}
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/customerregistration")
 	public String toCustomerRegistration()
 	{
 		return "forward:customerList.jsp";
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

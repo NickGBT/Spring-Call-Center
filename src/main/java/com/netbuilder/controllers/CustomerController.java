@@ -33,7 +33,7 @@ public class CustomerController {
 	
 	@RequestMapping(value="/")
 	public String toCustomerList(){
-		return "forward:customerList.jsp";
+		return "forward:employeeLogin.jsp";
 	}
 	
 	@ModelAttribute("customerliststuff")
