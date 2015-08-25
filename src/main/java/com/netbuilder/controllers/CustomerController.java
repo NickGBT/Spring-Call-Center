@@ -10,44 +10,44 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.netbuilder.entities.Customer;
+import com.netbuilder.util.CustomerList;
 
+/**
+ * 
+ * @author ngilbert
+ *
+ */
+
+//controller annotation tells spring that this is a controller class, do not use restcontroller unless you want every method to be annotated with responsebody.
 @Controller
 public class CustomerController {
-	
-//	@Inject
-	private ArrayList<Customer> allCustomers = new ArrayList<Customer>();
-		
-	
-	@RequestMapping(value="/customerListView", method = RequestMethod.GET)
-	@ResponseBody	
-	public ArrayList<Customer> allCustomers() {		
-		return allCustomers;
-	}
-	
-	@RequestMapping(value="/addcustomer", method = RequestMethod.GET)
+			
+
+	@RequestMapping(value="/addcustomer", method = RequestMethod.POST)
+	//requestparam looks for input fields with the same value as specified and returns them to the class that they are requested in, mapping is to the form action that contains the fields.
 	public String addCustomer(@RequestParam(value = "fName", required = true) String fName,
 			@RequestParam(value = "lName", required = true) String lName, @RequestParam(value = "contactNumber", required = true) String contactNumber){
 		Customer customer = new Customer(fName, lName, contactNumber);
-		allCustomers.add(customer);
+		CustomerList.allCustomers.add(customer);
+		//return must be a string for forwarding to work, if responsebody is annotated on the method, forwarding and redirecting will not work, the string itself will be returned.
 		return "forward:customerListView";
 	}
 	
+	//simple forwarding method.
 	@RequestMapping(value="/")
 	public String toCustomerList(){
-		return "forward:customerList.jsp";
+		return "forward:customerlist.jsp";
 	}
 	
+	//modelattribute is used to map a type to a string name
 	@ModelAttribute("customerliststuff")
 	public ArrayList<Customer> customerListStuff(){
 		ArrayList<Customer> customerListStuff = new ArrayList<Customer>();	
-		for (Customer customer : allCustomers){
+		for (Customer customer : CustomerList.allCustomers){
 
 			customerListStuff.add(customer);
 		}
 		return customerListStuff;
 	}
 	
-//	public String toPage() {
-//		return "forward:customerListView";
-//	}
 }
