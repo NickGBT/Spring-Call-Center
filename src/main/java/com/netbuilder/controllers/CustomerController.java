@@ -16,7 +16,6 @@ public class CustomerController {
 	
 //	@Inject
 	private ArrayList<Customer> allCustomers = new ArrayList<Customer>();
-		
 	
 	@RequestMapping(value="/customerListView", method = RequestMethod.GET)
 	@ResponseBody	
@@ -34,7 +33,7 @@ public class CustomerController {
 	
 	@RequestMapping(value="/")
 	public String toCustomerList(){
-		return "forward:customerList.jsp";
+		return "forward:employeeLogin.jsp";
 	}
 	
 	@ModelAttribute("customerliststuff")

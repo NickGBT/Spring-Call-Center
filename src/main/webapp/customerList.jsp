@@ -9,13 +9,13 @@
 		<input type="submit">
 	</form>
 
-	<br />
+	<br/>
 
 	<form action="addcustomer">
-		<input type="input" name="fName"> <br />
-		<input type="input" name="lName"> <br />
-		<input type="input" name="contactNumber"> <br />
-		<input type="submit"><br />
+		<input type="text" name="fName"><br/>
+		<input type="text" name="lName"><br/>
+		<input type="text" name="contactNumber"><br/>
+		<input type="submit"><br/>
 	</form>
 
 	<c:forEach items="${customerliststuff}" var="customer">
