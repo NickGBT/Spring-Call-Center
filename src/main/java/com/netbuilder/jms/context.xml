@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans 
+  xmlns="http://www.springframework.org/schema/beans" 
+  xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jms="http://www.springframework.org/schema/jms"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+  http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+  http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd">
+
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616" />
+	</bean>
+	
+	
+	<bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+	</bean>
+	
+	
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="defaultDestination" ref="destination" />
+	</bean>
+	
+	<bean id="messageSender" class="com.netbuilder.sender.MessageSender">
+		<property name="jmsTemplate" ref="jmsTemplate" />
+	</bean>
+	
+	<bean id="messageListener" class="com.netbuilder.receiver.TestListener" />
+	
+	<bean id="messageReceiver" class="com.netbuilder.receiver.MessageReceiver">
+		<property name="jmsTemplate" ref="jmsTemplate" />
+	</bean>
+	
+	<jms:listener-container container-type="default" connection-factory="connectionFactory" acknowledge="auto">
+		<jms:listener destination="test-queue" ref="messageListener" />
+	</jms:listener-container>
+
+</beans>
