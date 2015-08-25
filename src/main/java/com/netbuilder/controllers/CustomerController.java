@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.netbuilder.entities.Customer;
 import com.netbuilder.util.CustomerList;
@@ -21,10 +20,9 @@ import com.netbuilder.util.CustomerList;
 //controller annotation tells spring that this is a controller class, do not use restcontroller unless you want every method to be annotated with responsebody.
 @Controller
 public class CustomerController {
-			
+	
+	@RequestMapping(value="/addcustomer", method = RequestMethod.GET)
 
-	@RequestMapping(value="/addcustomer", method = RequestMethod.POST)
-	//requestparam looks for input fields with the same value as specified and returns them to the class that they are requested in, mapping is to the form action that contains the fields.
 	public String addCustomer(@RequestParam(value = "fName", required = true) String fName,
 			@RequestParam(value = "lName", required = true) String lName, @RequestParam(value = "contactNumber", required = true) String contactNumber){
 		Customer customer = new Customer(fName, lName, contactNumber);

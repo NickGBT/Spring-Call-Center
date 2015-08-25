@@ -1,4 +1,5 @@
 /target/
+<<<<<<< HEAD
 /target/
 /target/
 /target/
@@ -64,6 +65,12 @@
 /target/
 /target/
 /target/
+/target/
+/target/
+/target/
+=======
+.classpath
+>>>>>>> 15229b3e4e03b1fde7fcb90cd2f31197e7e268f7
 /target/
 /target/
 /target/
