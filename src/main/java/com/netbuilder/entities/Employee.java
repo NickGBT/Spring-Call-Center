@@ -16,8 +16,8 @@ public class Employee {
 	private String lName;
 	private EmployeePermissions employeePermission;
 	
-	public Employee(EmployeeDepartment employeeDepartment, String fName,
-			String lName, EmployeePermissions employeePermission) {
+	public Employee(String lName, String fName,
+			EmployeeDepartment employeeDepartment, EmployeePermissions employeePermission) {
 		this.employeeDepartment = employeeDepartment;
 		this.fName = fName;
 		this.lName = lName;
