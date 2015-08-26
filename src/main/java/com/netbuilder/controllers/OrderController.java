@@ -37,7 +37,7 @@ public class OrderController {
 			@RequestParam(value = "county", required = true) String county, @RequestParam(value = "postcode", required = true) String postcode, @RequestParam(value = "billingAddress", required = false) boolean isBillingAddress, @RequestParam(value = "orderId", required = true) String orderId, @RequestParam(value = "userId", required = true) String userId){
 		Address address = new Address (orderId, addressLine1, addressLine2, addressLine3, city, county, postcode, isBillingAddress);
 		allAddresses.add(address);
-		return "forward:addressListView";
+		return "forward:orderform.jsp";
 	}
 
 	

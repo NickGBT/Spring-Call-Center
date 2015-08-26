@@ -30,13 +30,13 @@
 		<input type="submit"><br/>
 	</form>
 	
-<%-- 	<c:forEach items="${fulladdresslist}" var="address"> --%>
-<!-- 		<tr> -->
-<%-- 			<td><c:out value="${address.addressLine1}"></c:out></td> --%>
-<%-- 			<td><c:out value="${address.addressLine2}"></c:out></td> --%>
-<%-- 			<td><c:out value="${address.addressLine3}"></c:out></td> --%>
-<!-- 		</tr> -->
-<!-- 		<br/> -->
-<%-- 	</c:forEach> --%>
+	<c:forEach items="${fulladdresslist}" var="address">
+		<tr>
+			<td><c:out value="${address.addressLine1}"></c:out></td>
+			<td><c:out value="${address.addressLine2}"></c:out></td>
+			<td><c:out value="${address.addressLine3}"></c:out></td>
+		</tr>
+		<br/>
+	</c:forEach>
 </body>
 </html>
