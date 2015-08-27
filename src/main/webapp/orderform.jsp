@@ -14,17 +14,30 @@
 <body>
 <h1>Customer Order Form</h1>
 	
+	Current Customer Basket: <c:out value="(${basketsize} Items currently in Customer Basket)"></c:out>
+
+	<form name="addProductsForm" action="productcatalog">
+        <input type="submit" value="Add Products"/>
+    </form><br/>
+   
+   	<c:forEach items="${currentbasket}" var="orderline">
+		<tr>
+			<td><c:out value="${orderline.product.productName}"></c:out></td>
+			<td><c:out value=" x ${orderline.quantity}"></c:out></td>
+		</tr>
+		<br/>
+	</c:forEach>
+    
 	<form action="submitorder">
-		Order ID:<input type="text" name="orderId"><br/><br/>
-		Customer ID:<input type="text" name="userId"><br/><br/>
-		Items:<input type="text" name="Items"><br/><br/> <!-- To be removed when some sort of basket functionality is implemented -->
-		Delivery Address:<br/>
-		House Number:<input type="text" name="addressLine1"><br/>
+		Order ID: <input type="text" name="orderId"><br/><br/>
+		Customer ID: <input type="text" name="userId"><br/><br/>
+		Delivery Address: <br/>
+		House Number: <input type="text" name="addressLine1"><br/>
 		Street:	<input type="text" name="addressLine2"><br/>
-		Town:<input type="text" name="addressLine3"><br/>
-		City:<input type="text" name="city"><br/>
-		County:<input type="text" name="county"><br/>
-		Postcode:<input type="text" name="postcode"><br/>
+		Town: <input type="text" name="addressLine3"><br/>
+		City: <input type="text" name="city"><br/>
+		County: <input type="text" name="county"><br/>
+		Postcode: <input type="text" name="postcode"><br/>
 		Is Billing Address? <input type="checkbox" name="billingAddress"> <br/><br/>
 		
 		<input type="submit"><br/>

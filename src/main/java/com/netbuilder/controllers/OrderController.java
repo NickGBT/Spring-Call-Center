@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
+import com.netbuilder.entities.OrderLine;
 
 /**
  * @author jtaylor
@@ -19,6 +20,8 @@ import com.netbuilder.entities.Customer;
 @Controller
 public class OrderController {
 	ArrayList<Address> allAddresses = new ArrayList<Address>();
+	ArrayList<OrderLine> allOrderLines = new ArrayList<OrderLine>();
+	int basketSize = 0;
 	
 	@RequestMapping(value="/addressListView", method = RequestMethod.GET)
 	@ResponseBody	
@@ -28,6 +31,7 @@ public class OrderController {
 	
 	@RequestMapping(value="/orderform")
 	public String loadOrderForm(){
+		basketSize = allOrderLines.size();
 		return "forward:orderform.jsp";
 	}
 	
@@ -40,10 +44,28 @@ public class OrderController {
 		return "forward:orderform.jsp";
 	}
 
+	@RequestMapping(value="/productcatalog")
+	public String loadProductCatalog(){
+		return "forward:productcatalog.jsp";
+	}
 	
 	@ModelAttribute("fulladdresslist")
 	public ArrayList<Address> customerListStuff(){
 		return allAddresses;
+	}
+
+	@ModelAttribute("basketsize")
+	public int getBasketSize() {
+		return basketSize;
+	}
+
+	public void setBasketSize(int basketSize) {
+		this.basketSize = basketSize;
+	}
+
+	@ModelAttribute("currentbasket")
+	public ArrayList<OrderLine> getAllOrderLines() {
+		return allOrderLines;
 	}
 	
 	
