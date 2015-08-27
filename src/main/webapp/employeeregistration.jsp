@@ -9,13 +9,13 @@
 			<input type="input" name="fName" value="First Name"> <br />
 			<br /> <input type="input" name="lName" value="Last Name"><br />
 			<br /> <form:select path="employeeDepartment">
-				<form:option value="SALES">Sales</option>
-				<form:option value="WAREHOUSE">Warehouse</option>
-			</form:select>> <br /> 
+				<form:option value="NONE">--SELECT--</form:option>
+				<form:options items="SALES, WAREHOUSE"></form:options>
+			</form:select> <br /> 
 			
 			<br /> <form:select path="employeePermissions">
-				<form:option value="MANAGER">Manager</option>
-				<form:option value="WORKER">Worker</option>
+				<form:option value="MANAGER">Manager</form:option>
+				<form:option value="WORKER">Worker</form:option>
 			</form:select> <br /> 
 			
 			<input type="submit"><br />

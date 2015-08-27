@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.netbuilder.entities.Customer;
 
+/**
+ * 
+ * @author ngilbert
+ *
+ */
+
 @Controller
 public class CustomerList {
 

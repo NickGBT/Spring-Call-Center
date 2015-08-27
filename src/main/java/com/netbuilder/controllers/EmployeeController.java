@@ -2,6 +2,7 @@ package com.netbuilder.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.netbuilder.entities.Employee;
@@ -18,7 +19,7 @@ import com.netbuilder.util.EmployeeList;
 @Controller
 public class EmployeeController {
 
-	@RequestMapping(value="/registeremployee")
+	@RequestMapping(value="/registeremployee", method = RequestMethod.GET)
 	public String registerEmployee(@RequestParam(value="fName", required = true) String fName,
 			@RequestParam(value = "lname", required = true) String lName, 
 			@RequestParam(value="employeeDepartment", required = true) EmployeeDepartment employeeDepartment,

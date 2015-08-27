@@ -22,7 +22,6 @@ import com.netbuilder.util.CustomerList;
 public class CustomerController {
 	
 	@RequestMapping(value="/addcustomer", method = RequestMethod.GET)
-
 	public String addCustomer(@RequestParam(value = "fName", required = true) String fName,
 			@RequestParam(value = "lName", required = true) String lName, @RequestParam(value = "contactNumber", required = true) String contactNumber){
 		Customer customer = new Customer(fName, lName, contactNumber);
@@ -34,7 +33,7 @@ public class CustomerController {
 	//simple forwarding method.
 	@RequestMapping(value="/")
 	public String toCustomerList(){
-		return "forward:customerlist.jsp";
+		return "forward:customerList.jsp";
 	}
 	
 	//modelattribute is used to map a type to a string name
